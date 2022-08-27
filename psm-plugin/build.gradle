@@ -2,8 +2,10 @@
 apply plugin: 'maven'
 apply plugin: 'groovy'
 apply plugin: 'com.github.dcendents.android-maven'
+
 group='com.github.hfc123'
-version = '1.0'
+version = '1.0.0'
+
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
@@ -18,28 +20,18 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
-/*group = 'com.hfc.myplugin'
-version = '1.0.0'
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: uri('../repo'))
-        }
-    }
-}*/
+publishing {
+    publications {
+        // 这个mavenJava可以随便填，只是一个任务名字而已
+        // MavenPublication必须有，这个是调用的任务类
+        mavenJava(MavenPublication) {
+            // 这里头是artifacts的配置信息，不填会采用默认的
+            groupId = 'com.github.hfc123'
+            artifactId = 'psm-plugin'
+            version = '1.0.1'
 
-/*task pluginTest {
-    println 'Hello World2'
-    doLast {
-        println 'Hello World'
-    }
-}*/
-/*group = 'com.hfc.myplugin'
-version = '1.0.0'
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: uri('../repo'))
+            from components.java
         }
     }
-}*/
+}
+
