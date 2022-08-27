@@ -1,4 +1,7 @@
 apply plugin: 'groovy'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.hfc123'
+version = '1.0'
 
 targetCompatibility = JavaVersion.VERSION_1_7
 sourceCompatibility = JavaVersion.VERSION_1_7

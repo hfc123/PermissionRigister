@@ -27,10 +27,10 @@ class PermissiomPlugin implements Plugin<Project> {
             variants = project.android.libraryVariants
         }
         project.dependencies {
-            implementation 'com.github.hfc123.PermissionRigister:permissions-annotations:v1.0.4'
-            implementation 'com.github.hfc123.PermissionRigister:apt-pms-compiler:v1.0.4'
+            implementation 'com.github.hfc123.PermissionRigister:permissions-annotations:v1.0.5'
+            implementation 'com.github.hfc123.PermissionRigister:apt-pms-compiler:v1.0.5'
             implementation 'org.aspectj:aspectjrt:1.8.6'
-            annotationProcessor 'com.github.hfc123.PermissionRigister:pms-compiler:v1.0.4'
+            annotationProcessor 'com.github.hfc123.PermissionRigister:pms-compiler:v1.0.5'
         }
 
         variants.all { variant ->
