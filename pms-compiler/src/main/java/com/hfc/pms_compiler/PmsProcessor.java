@@ -116,8 +116,8 @@ final  public class PmsProcessor extends AbstractProcessor {
         for (Map.Entry<TypeElement, BindingSet> entry : bindingMap.entrySet()) {
             TypeElement typeElement = entry.getKey();
             BindingSet binding = entry.getValue();
-            processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING,"xxxx22222");
-           JavaFile javaFile = binding.brewJava(sdk, debuggable);
+//            processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING,"xxxx22222");
+            JavaFile javaFile = binding.brewJava(sdk, debuggable);
             try {
                 javaFile.writeTo(filer);
             } catch (IOException e) {
