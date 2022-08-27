@@ -1,3 +1,6 @@
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
 
 apply plugin: 'com.android.application'
 apply plugin: 'psmplugin'
@@ -28,25 +31,19 @@ android {
         targetCompatibility 1.8
     }
 }
-
 buildscript {
     repositories {
         google()
         mavenCentral()
         jcenter()
     }
-/*
-    dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.6'
-    }
-*/
 
 }
 
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation 'org.aspectj:aspectjrt:1.8.6'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     testImplementation 'junit:junit:4.12'
@@ -56,12 +53,6 @@ dependencies {
 //    implementation project(path: ':test-annotations')
 //    implementation project(path: ':permissions-annotations')
 //    annotationProcessor  project(path: ':pms-compiler')
-    /*
-    com.github.hfc123.PermissionRigister:permissions-annotations:v1.0.0
-com.github.hfc123.PermissionRigister:apt-pms-compiler:v1.0.0
-com.github.hfc123.PermissionRigister:pms-compiler:v1.0.0
-    * */
-
 }
 
 buildscript {
