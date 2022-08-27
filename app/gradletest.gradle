@@ -1,0 +1,59 @@
+
+this.getProjects()
+this.getparentProject()
+this.getRootProjectw()
+def  getProjects(){
+    println('----------------------------')
+    println('-------------rootproject---------------')
+    println('----------------------------')
+    this.getAllprojects().eachWithIndex {Project project,int index ->
+
+        if (index==0){
+            println("Root project ${project.name}")
+        }else {
+            println("+---- ${project.name}")
+        }
+    }
+}
+def getparentProject(){
+    def name = this.getParent().name
+    println("$name")
+}
+def getRootProjectw(){
+    def name = this.getRootProject().name
+    println("$name")
+}
+
+/*def startbuildtime,endbuildtime
+this.afterEvaluate {
+    println("----start----")
+    def prebuildtask = project.tasks
+    project.tasks.each {
+        task->
+            println(task.name)
+    }
+    def buildtask = project.tasks.getByName('build')
+    prebuildtask.doFirst {
+
+        println("----start----")
+        startbuildtime=System.currentTimeMillis()
+        println("----${startbuildtime}----")
+    }
+    buildtask.doLast {
+        endbuildtime=System.currentTimeMillis()
+        println("----end----")
+        println("----${endbuildtime}----")
+    }
+
+}*/
+/*
+task writetask{
+    inputs.properties("versionCode", this.android.defaultConfig.versionCode)
+//    inputs.properties("versionName",this.findProperty('versionName'))
+}
+task outputwithinputTask{
+    dependsOn(writetask)
+    doLast {
+        println("endd....")
+    }
+}*/

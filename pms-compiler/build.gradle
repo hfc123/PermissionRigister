@@ -1,0 +1,59 @@
+apply plugin: 'java-library'
+apply plugin: 'checkstyle'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.hfc123'
+version = '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    'src/main/java',
+                    '../permissions-annotations/src/main/java'
+            ]
+        }
+    }
+
+}
+buildscript {
+
+
+    ext.versions = [
+            'minSdk': 14,
+            'compileSdk': 28,
+
+            'androidTools': '26.2.0',
+            'kotlin': '1.2.71',
+            'incap' : '0.2',
+
+            'release': '8.8.1',
+    ]
+    ext.deps=[
+            'auto': [
+                    'service': 'com.google.auto.service:auto-service:1.0-rc4',
+                    'common': 'com.google.auto:auto-common:0.10',
+            ],
+            javapoet: 'com.squareup:javapoet:1.10.0',
+            'guava': 'com.google.guava:guava:24.0-jre',
+            'incap': [
+                    'runtime': "net.ltgt.gradle.incap:incap:${versions.incap}",
+                    'processor': "net.ltgt.gradle.incap:incap-processor:${versions.incap}",
+            ]
+    ]
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.auto.common
+    implementation deps.guava
+    api deps.javapoet
+    compileOnly deps.auto.service
+    annotationProcessor  deps.auto.service
+    compileOnly files(org.gradle.internal.jvm.Jvm.current().getToolsJar())
+    api deps.incap.runtime
+    compileOnly deps.incap.processor
+//    implementation project(path: ':permissions-annotations')
+}
+
